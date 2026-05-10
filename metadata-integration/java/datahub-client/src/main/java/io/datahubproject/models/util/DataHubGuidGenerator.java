@@ -20,7 +20,7 @@ public class DataHubGuidGenerator {
     String jsonKey = objectMapper.writeValueAsString(obj);
 
     // Generate MD5 hash
-    MessageDigest md = MessageDigest.getInstance("MD5");
+    MessageDigest md = MessageDigest.getInstance("SHA-256");
     byte[] hashBytes = md.digest(jsonKey.getBytes());
 
     // Convert byte array to hexadecimal string
