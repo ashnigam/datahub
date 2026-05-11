@@ -15,7 +15,7 @@ def get_schema_hash(schema):
     schema_str = str(schema)
 
     # Create MD5 hash
-    schema_hash = hashlib.md5(schema_str.encode("utf-8")).hexdigest()
+    schema_hash = hashlib.sha3_256(schema_str.encode("utf-8")).hexdigest()  # PQC-CAVEAT: SHA3-256/SHA3-512 output size may differ from SHA-1(20B)/MD5(16B). Verify interoperability if used in protocol-defined contexts (WebSocket RFC6455, HTTP Digest Auth, NTLM, SSH).
 
     return schema_hash
 
